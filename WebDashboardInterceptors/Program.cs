@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 IFileProvider? fileProvider = builder.Environment.ContentRootFileProvider;
 IConfiguration? configuration = builder.Configuration;
 
-builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer("Server=ZAKHODYAEVA-NBX;Database=instnwnd;Trusted_Connection=True"));
+builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer("Server=yourLocalServer;Database=instnwnd;Trusted_Connection=True"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
