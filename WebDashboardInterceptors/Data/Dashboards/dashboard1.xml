@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Order Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="Orders" ComponentName="sqlDataSource1">
+      <Connection Name="NWindConnectionString" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="Orders">
+        <Tables>
+          <Table Name="Orders" />
+          <Table Name="Customers" />
+          <Relation Type="Inner" Parent="Orders" Nested="Customers">
+            <KeyColumn Parent="CustomerID" Nested="CustomerID" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <AllColumns Table="Orders" />
+          <AllColumns Table="Customers" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="sqlDataSource1" DataMember="Orders">
+      <DataItems>
+        <Dimension DataMember="ShipCity" DefaultId="DataItem0" />
+        <Measure DataMember="OrderID" SummaryType="Count" DefaultId="DataItem1" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+      <ColumnFilterOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

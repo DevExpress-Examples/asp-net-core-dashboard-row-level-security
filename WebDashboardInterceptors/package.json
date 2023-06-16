@@ -1,0 +1,11 @@
+{
+  "name": "webdashboard",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "devextreme-dist": "23.1-stable",
+    "@devexpress/analytics-core": "23.1-stable",
+    "devexpress-dashboard": "23.1-next"
+  }
+}

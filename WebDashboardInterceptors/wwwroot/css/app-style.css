@@ -1,0 +1,10 @@
+﻿html, body, form {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#Dashboard {
+    height: calc(100% - 20px) !important;
+}

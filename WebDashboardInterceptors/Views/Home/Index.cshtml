@@ -1,0 +1,42 @@
+﻿@using DevExpress.AspNetCore
+@using Microsoft.AspNetCore.Http;
+@using DevExpress.DashboardWeb;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Dashboard</title>
+    <!-- Add bundled resources. -->
+    <link href="~/css/site.min.css" rel="stylesheet" />
+    <script src="~/js/site.min.js"></script>
+    <link href="~/css/app-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/thirdparty.bundle.css" />
+
+    <script>
+        function onBeforeRender(sender) {
+            var dashboardControl = sender;
+            dashboardControl.registerExtension(new DevExpress.Dashboard.DashboardPanelExtension(dashboardControl));
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form method="post" class="form-inline float-right">
+            <button type="submit" asp-controller="Account" asp-action="Logout" class="btn btn-primary float-right  mr-2">
+                Log out
+            </button>
+        </form>
+    </div>
+
+    @(Html.DevExpress().Dashboard("Dashboard")
+        .ControllerName("DefaultDashboard")
+        .OnBeforeRender("onBeforeRender")
+        .WorkingMode(WorkingMode.Viewer)
+        .Extensions(ext => ext.DataSourceWizard(dsw => dsw.AllowCreateNewJsonConnection(true)))
+        )
+</body>
+</html>
