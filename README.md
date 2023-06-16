@@ -7,6 +7,13 @@
 
 This example shows how you can implement connection filtering in an application, where users share the same application. The application sets the current user ID in [SESSION_CONTEXT](https://learn.microsoft.com/en-us/sql/t-sql/functions/session-context-transact-sql?view=sql-server-ver16&viewFallbackFrom=sql-server-ver16) after connecting to the database, and then security policies filter rows that shouldn't be visible to this ID.
 
+## Files to Review
+
+- [RLSConnectionInterceptor.cs](./WebDashboardInterceptors/RLSConnectionInterceptor.cs)
+- [Program.cs](./WebDashboardInterceptors/Program.cs)
+- [AccountController.cs](./WebDashboardInterceptors/Controllers/AccountController.cs)
+- [Login.cshtml](./WebDashboardInterceptors/Views/Account/Login.cshtml)
+
 ## Example Overview
 
 ### Configure a Database
@@ -38,7 +45,7 @@ CREATE SECURITY POLICY Security.OrdersFilter
     WITH (STATE = ON);
 GO
 ```
-### Configure the `IDBConnectionInterceptor` Object 
+### Configure an `IDBConnectionInterceptor` Object 
 
 Create a `IDBConnectionInterceptor` object ([RLSConnectionInterceptor.cs](./WebDashboardInterceptors/RLSConnectionInterceptor.cs) in this example) to set the current user ID in SESSION_CONTEXT after opening a connection and simulate the connection filtering by selecting from the _Orders_ table after setting different user IDs in SESSION_CONTEXT.
 
@@ -54,12 +61,7 @@ You can select a user to see the dashboard that displays filtered data for the s
 
 ![Dashboard](./Images/dashboard.png)
 
-## Files to Review
 
-- [RLSConnectionInterceptor.cs](./WebDashboardInterceptors/RLSConnectionInterceptor.cs)
-- [Program.cs](./WebDashboardInterceptors/Program.cs)
-- [AccountController.cs](./WebDashboardInterceptors/Controllers/AccountController.cs)
-- [Login.cshtml](./WebDashboardInterceptors/Views/Account/Login.cshtml)
 
 
 
