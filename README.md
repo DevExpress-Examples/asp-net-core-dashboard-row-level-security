@@ -17,12 +17,12 @@ This example assumes that multiple users share the same database. The applicatio
 
 ### Configure a Database
 
-1. This example uses an SQL file ([instnwnd.sql](https://github.com/microsoft/sql-server-samples/blob/master/samples/databases/northwind-pubs/instnwnd.sql)). Execute it to recreate a database on your side. Do not forget to update the connection string in the [appsettings.json](./WebDashboardInterceptors/appsettings.json) and [Program.cs](./WebDashboardInterceptors/Program.cs) files to make it valid in your environment.
+1. This example uses an SQL file ([instnwnd.sql](https://github.com/microsoft/sql-server-samples/blob/master/samples/databases/northwind-pubs/instnwnd.sql)). Execute it to recreate the database on your side. Do not forget to update [appsettings.json](./WebDashboardInterceptors/appsettings.json) and [Program.cs](./WebDashboardInterceptors/Program.cs): make the connection string valid in your environment.
 
-2. Execute the script below to configure the execution context to control access to rows in a database table. This script does the following:
+2. Execute the script below. The script extends the database as follows:
 
-- Creates a new schema and predicate function, which uses the user ID stored in SESSION_CONTEXT to filter rows. 
-- Creates a security policy that adds this function as a filter predicate and a block predicate on _Orders_.  
+    - Creates a new schema and predicate function, which uses the user ID stored in SESSION_CONTEXT to filter rows. 
+    - Creates a security policy that adds this function as a filter predicate and a block predicate on _Orders_.  
 
 ```sql
 CREATE SCHEMA Security;
