@@ -46,7 +46,7 @@ GO
 ```
 ### Configure an `IDBConnectionInterceptor` Object 
 
-Create a `IDBConnectionInterceptor` object ([RLSConnectionInterceptor.cs](./WebDashboardInterceptors/RLSConnectionInterceptor.cs) in this example) to set the current user ID in SESSION_CONTEXT after opening a connection and simulate the connection filtering by selecting from the _Orders_ table after setting different user IDs in SESSION_CONTEXT.
+Create an `IDBConnectionInterceptor` object ([RLSConnectionInterceptor.cs](./WebDashboardInterceptors/RLSConnectionInterceptor.cs) in this example). During initialization, store the current user ID in SESSION_CONTEXT. Once the database connection opens, select required rows from the _Orders_ table.
 
 Register `RLSConnectionInterceptor` in `DashboardConfigurator`.
 
@@ -56,7 +56,7 @@ When you run the application, the registration form ([Login.cshtml](./WebDashboa
 
 ![Registration form](./Images/loginform.png)
 
-You can select a user to see the dashboard that displays filtered data for the specified user.
+Select a user to see the dashboard with filtered data.
 
 ![Dashboard](./Images/dashboard.png)
 
