@@ -57,6 +57,11 @@ When you run the application, the registration form ([Login.cshtml](./WebDashboa
 
 ![Registration form](./Images/loginform.png)
 
+##  Documentation 
+
+* [IDBConnectionInterceptor](https://docs.devexpress.com/CoreLibraries/DevExpress.DataAccess.Sql.IDBConnectionInterceptor)
+* [IDBCommandInterceptor](https://docs.devexpress.com/CoreLibraries/DevExpress.DataAccess.Sql.IDBCommandInterceptor)
+
 Select a user to see the dashboard with filtered data.
 
 ![Dashboard](./Images/dashboard.png)
